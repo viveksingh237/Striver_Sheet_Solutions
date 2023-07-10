@@ -28,18 +28,24 @@ public:
 
 
         //*** kadane's algo
+        int start,end;
         long long int maxi=INT_MIN,sum=0,n=nums.size();
-        
+        int temp;
         for(int i=0;i<n;i++){
+            if(sum == 0) temp=i;
             sum +=nums[i];
-            if(sum > 0) maxi = max(sum,maxi);
-            else sum=0;
+            if(sum > maxi){
+                 maxi = sum;
+                 start=temp, end=i;
+            }
+            else if(sum < 0) sum=0;
         }
-        // when sum <= 0
+        // when every subarray sum <= 0
         if(maxi == INT_MIN){
             for(int i=0;i<n;i++)
             if(nums[i] >maxi) maxi = nums[i];
         }
+        cout<< start<<" "<<end;
         return maxi;
     }
 };
