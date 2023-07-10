@@ -16,9 +16,9 @@ vector<int> Row(int r){
     vector<vector<int>> generate(int numRows) {
         vector<vector<int>> ans;
         int n=numRows;
-        for(int i=n;i>0;i--)
+        for(int i=1;i<=n;i++)
         ans.push_back(Row(i));
-        reverse(ans.begin(),ans.end());
+        //reverse(ans.begin(),ans.end());  // <-- for bottom up
         return ans;
 
 
