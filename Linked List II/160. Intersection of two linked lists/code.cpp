@@ -65,11 +65,26 @@ public:
         // }
         // return nullptr;
 
-        //*****Optimized in one go
+        // //*****Optimized in one go
+        // ListNode *temp1 = headA, *temp2 = headB;
+        // while(temp1 != temp2){
+        //     temp1 = temp1 == NULL ? headB : temp1->next;
+        //     temp2 = temp2 == NULL ? headA : temp2->next;
+        // }
+        // return temp1;
+        ///*********** OR *** Alternate code for above approach
+        //easy to understand
         ListNode *temp1 = headA, *temp2 = headB;
         while(temp1 != temp2){
-            temp1 = temp1 == NULL ? headB : temp1->next;
-            temp2 = temp2 == NULL ? headA : temp2->next;
+        if(temp1 != nullptr)
+        temp1 = temp1->next;
+        else 
+        temp1 = headB;
+
+        if(temp2 != nullptr)
+        temp2 = temp2->next;
+        else 
+        temp2 = headA;
         }
         return temp1;
     }
